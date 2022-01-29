@@ -8,7 +8,7 @@ export default function Modal({ children, visible, title }){
             <div className='border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
               {/* Header */}
               <div className='flex items-start justify-between p-5 border-b border-solid border-teal-300 rounded-t'>
-                <h4 className='text-xl font-medium text-black'>
+                <h4 className='text-lg font-medium text-black'>
                   {title}
                 </h4>
               </div>

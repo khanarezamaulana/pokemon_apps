@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 import { AppsContext } from '../context/AppsContext'
 import Loader from '../components/Loader'
 import Tabs from '../components/Tabs'
 import Alert from '../components/Alert'
-import Footer from '../components/Footer'
 
 const BASE_URL = 'https://pokeapi.co/api/v2/'
 
@@ -48,7 +46,7 @@ const Home = (props: any) => {
   }, [])
 
   const handleToDetail = (name: string) => {
-    router.push(`/detail?name=${name}`)
+    router.push(`/profile?name=${name}`)
   }
 
   const handleReleasePokemon = (pokemon: any) => {
@@ -94,10 +92,9 @@ const Home = (props: any) => {
   }
 
   const renderMyPokemons = () => {
-    console.log(myPokemons)
     if (!myPokemons || myPokemons.length === 0) {
       return (
-        <div style={{ marginTop: '-140px' }} className='flex flex-col justify-center items-center h-screen'>
+        <div style={{ marginTop: '-217px' }} className='flex flex-col justify-center items-center h-screen'>
           <img
             className='ml-16'
             src={'/pokemon_5.png'}
@@ -106,22 +103,12 @@ const Home = (props: any) => {
           />
           <div className='text-md font-medium mt-4'>Opps..</div>
           <div>You haven't catch any pokemons!</div>
-          {visibleAlert &&
-            <Alert
-              src={pokemonImage}
-              onClick={() => closeAlert()}
-              children={null}
-              title={'Success!'}
-              description={`${pokemonNickName} has been released!`}
-              visible={visibleAlert}
-            />
-          }
         </div>
       )
     } else {
       return (
         <>
-          <div className='flex flex-col w-full'>
+          <div className={myPokemons.length > 3 ? 'flex flex-col w-full' : 'flex flex-col w-full h-screen'}>
             {myPokemons.map((item: any) => {
               return (
                 <React.Fragment key={item.nickName}>
@@ -177,7 +164,6 @@ const Home = (props: any) => {
       const result = await fetch(`${BASE_URL}pokemon`).then(res => res.json())
       const { results } = result
       setPokemons(results)
-      console.log(results)
     } finally {
       setIsLoading(false)
     }
@@ -196,7 +182,7 @@ const Home = (props: any) => {
   
 
   return (
-    <div className='h-max'>
+    <>
       <Tabs
         tabs={tabs}
         activeTab={activeTab}
@@ -227,8 +213,7 @@ const Home = (props: any) => {
           />
         </div>
       }
-      <Footer />
-    </div>
+    </>
   )
 }
 

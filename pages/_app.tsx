@@ -3,6 +3,7 @@ import '../styles/globals.css'
 import Header from '../components/Header'
 import Head from 'next/head'
 import { AppsProvider } from '../context/AppsContext'
+import Footer from '../components/Footer'
 
 function MyApp ({ Component, pageProps }: AppProps) {
   return (
@@ -17,6 +18,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
         <div className='max-w-md mx-auto shadow-lg'>
           <Header />
           <Component {...pageProps} />
+          <Footer />
         </div>
       </AppsProvider>
     </>

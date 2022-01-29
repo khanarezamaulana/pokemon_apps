@@ -8,18 +8,26 @@ export default function Header () {
   return (
     <div className='flex justify-center items-center bg-teal-500 p-4 sticky top-0 z-20'>
       {
-        router.pathname === '/detail' &&
+        router.pathname === '/profile' &&
         <FontAwesomeIcon onClick={() => router.back()} icon={faArrowCircleLeft} width={20} color='white' className='left-5 cursor-pointer absolute' />
       }
-      <img
-        onClick={() => router.push('/')}
-        className='mr-2 cursor-pointer'
-        src='https://diproses.id/wp-content/uploads/2022/01/pokeball_2.png'
-        alt='pokeball'
-        width={25}
-        height={25}
-      />
-      <span onClick={() => router.push('/')} className='text-white cursor-pointer'>Pokemon Trip</span>
+      {
+        router.pathname === '/profile' ? (
+          <span onClick={() => router.push('/')} className='text-white cursor-pointer'>About Me</span>
+        ) : (
+          <>
+            <img
+              onClick={() => router.push('/')}
+              className='mr-2 cursor-pointer'
+              src='/pokeball_2.png'
+              alt='pokeball'
+              width={25}
+              height={25}
+            />
+            <span onClick={() => router.push('/')} className='text-white cursor-pointer'>Pokemon Trip</span>
+          </>
+        )
+      }
     </div>
   )
 }

@@ -1,7 +1,5 @@
 import { useState, useContext } from 'react'
 import { AppsContext } from '../context/AppsContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { FontAwesomeIcon } from '@fortawesome/free-solid-svg-icons'
 import Modal from '../components/Modal'
 import Alert from '../components/Alert'
 
@@ -35,7 +33,6 @@ export async function getServerSideProps(context: any){
 }
 
 const Detail = (props: any) => {
-  console.log(props.pokemonDetail)
   const { pokemonDetail } = props
   const { addPokemonOwned } = useContext(AppsContext)
   const [ visibleModal, setVisibleModal ] = useState(false)
@@ -47,7 +44,6 @@ const Detail = (props: any) => {
 
   const handleCatch = () => {
     const catched = Math.random() < 0.5
-    console.log(catched)
     if (catched) {
       setCatched(true)
       setVisibleModal(true)
@@ -130,14 +126,41 @@ const Detail = (props: any) => {
         src={pokemonDetail.sprites.front_default}
         alt={pokemonDetail.sprites.front_default}
       />
-      { visibleModal &&
+      <div className='bg-white p-4 max-w-md mx-auto rounded-xl shadow-md'>
+        <div>
+          <div className='text-md text-black flex justify-center mb-1'>
+            Type
+          </div>
+          <p className='text-slate-500 text-sm capitalize'>{pokemonDetail.types.map((poke: any) => poke.type.name).join(', ')}</p>
+        </div>
+        <div>
+          <div className='text-md text-black mt-5 mb-1 flex justify-center'>
+            Moves
+          </div>
+          <p className='text-slate-500 text-sm flex justify-center items-center pl-8 capitalize'>
+            <div className='grid grid-cols-2 gap-1'>
+              {pokemonDetail.moves.slice(0, 15).map((poke: any) =>
+                <div className='text-left'>
+                  <li className='pr-5' key={poke.move.name}>{poke.move.name}</li>
+                </div>
+              )}
+              {pokemonDetail.moves.slice(15, 30).map((poke: any) =>
+                <div className='text-left'>
+                  <li key={poke.move.name}>{poke.move.name}</li>
+                </div>
+              )}
+            </div>
+          </p>
+        </div>
+      </div>
+      {visibleModal &&
         <Modal title={catched ? 'Yeay, Catched!' : 'Whoops!'} visible={visibleModal}>
           <div className='relative p-6 flex-auto'>
             <p className='my-4 text-light text-left text-base leading-relaxed'>
               {
                 catched ? (
                   'Give him a new Nickname'
-                ) : ( 
+                ) : (
                   <span className='flex flex-row space-x-6 px-6 items-center'>
                     <span>
                       <img
