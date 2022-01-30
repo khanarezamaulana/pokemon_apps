@@ -6,10 +6,6 @@
 // import '@testing-library/jest-dom/extend-expect'
 import Home from '../home'
 
-// test('Home Page', () => {
-//   render(<Home />)
-// })
-
 test('Home', () => {
   render(<Home />)
   const element = document.createElement('div');
