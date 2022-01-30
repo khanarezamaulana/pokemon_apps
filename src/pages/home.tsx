@@ -105,7 +105,7 @@ const Home = (props: any) => {
             />
           </div>
           <div className='text-md font-medium mt-2'>Opps..</div>
-          <div>You haven't catch any pokemons!</div>
+          <div>You haven&#39;t catch any pokemons!</div>
         </div>
       )
     } else {
@@ -209,7 +209,6 @@ const Home = (props: any) => {
           <Alert
             src={pokemonImage}
             onClick={() => closeAlert()}
-            children=''
             title={'Success!'}
             description={`${pokemonNickName} has been released!`}
             visible={visibleAlert}

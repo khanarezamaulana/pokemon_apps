@@ -146,12 +146,12 @@ const Detail = (props: any) => {
               <p className='text-slate-500 text-sm flex justify-center items-center pl-8 capitalize'>
                 <div className='grid grid-cols-2 gap-1'>
                   {profileData.moves.slice(0, 15).map((poke: any) =>
-                    <div className='text-left'>
+                    <div className='text-left' key={poke.move.name}>
                       <li className='pr-5'>{poke.move.name}</li>
                     </div>
                   )}
                   {profileData.moves.slice(15, 30).map((poke: any) =>
-                    <div className='text-left'>
+                    <div className='text-left' key={poke.move.name}>
                       <li>{poke.move.name}</li>
                     </div>
                   )}
@@ -224,7 +224,6 @@ const Detail = (props: any) => {
               src={profileData.sprites.front_default}
               onClick={() => closeAlert()}
               visible={visibleAlert}
-              children=''
               title={errorMessage ? 'Failed!' : 'Congrats!'}
               description={errorMessage ? errorMessage : <span><span className='capitalize'>{profileData.name}</span> has been saved!</span>}
             />

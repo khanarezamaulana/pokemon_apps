@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import Image from 'next/image'
 
-export default function Alert({ children, visible, title, description, onClick, src }){
+export default function Alert({ visible, title, description, onClick, src }){
   if (visible) {
     return (
       <>
@@ -25,7 +25,6 @@ export default function Alert({ children, visible, title, description, onClick, 
                 <div className='text-lg font-medium text-black'>{title}</div>
                 <p className='text-slate-500'>{description}</p>
               </div>
-              {children}
             </div>
           </div>
         </div>
