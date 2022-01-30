@@ -222,7 +222,7 @@ const Detail = (props: any) => {
               onClick={() => closeAlert()}
               visible={visibleAlert}
               children={null}
-              title={errorMessage ? 'Failed!' : 'Yeay, Congrats!'}
+              title={errorMessage ? 'Failed!' : 'Congrats!'}
               description={errorMessage ? errorMessage : <span><span className='capitalize'>{profileData.name}</span> has been saved!</span>}
             />
           }

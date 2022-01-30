@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 export default function Footer () {
   const router = useRouter()
   return (
-    <div className='flex justify-center items-center border-t border-solid border-teal-500 p-4 mt-5'>
+    <div className='flex justify-center items-center border-t border-solid border-teal-200 p-4 mt-5'>
       <img
         onClick={() => router.push('/')}
         className='mr-2 cursor-pointer'
