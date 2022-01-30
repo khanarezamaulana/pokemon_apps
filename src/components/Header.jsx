@@ -16,15 +16,15 @@ export default function Header () {
           <span onClick={() => router.push('/')} className='text-white cursor-pointer'>About Me</span>
         ) : (
           <>
-            <img
+            <Image
               onClick={() => router.push('/')}
-              className='mr-2 cursor-pointer'
+              className='cursor-pointer'
               src='/pokeball_2.png'
               alt='pokeball'
               width={25}
               height={25}
             />
-            <span onClick={() => router.push('/')} className='text-white cursor-pointer'>Pokemon Trip</span>
+            <span onClick={() => router.push('/')} className='text-white cursor-pointer ml-2'>Pokemon Trip</span>
           </>
         )
       }

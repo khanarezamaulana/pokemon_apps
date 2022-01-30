@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react"
 import { useRouter } from 'next/router'
-import { AppsContext } from '../context/AppsContext'
+import { AppsContext } from '../../context/AppsContext'
+import Image from 'next/image'
 import Loader from '../components/Loader'
 import Tabs from '../components/Tabs'
 import Alert from '../components/Alert'
@@ -66,7 +67,7 @@ const Home = (props: any) => {
       <div className='flex flex-col'>
         <div style={{ maxWidth: '25.3rem', boxShadow: '0.5px 0 5px 0 #00000014' }} className='p-6 mx-auto bg-white rounded-xl shadow-inner flex items-center space-x-9 w-full'>
           <div className='shrink-0'>
-            <img className='h-20 w-20' src='/pokeball_4.png' alt='pokeball' />
+            <Image width={80} height={80} className='h-20 w-20' src='/pokeball_4.png' alt='pokeball_4.png' />
           </div>
           <div>
             <div className='text-md font-medium text-black'>Total Pokemon</div>
@@ -95,13 +96,15 @@ const Home = (props: any) => {
     if (!myPokemons || myPokemons.length === 0) {
       return (
         <div style={{ marginTop: '-217px' }} className='flex flex-col justify-center items-center h-screen'>
-          <img
-            className='ml-16'
-            src={'/pokemon_5.png'}
-            width={200}
-            height={200}
-          />
-          <div className='text-md font-medium mt-4'>Opps..</div>
+          <div className='ml-16'>
+            <Image
+              src='/pokemon_5.png'
+              alt='pokemon_5.png'
+              width={200}
+              height={200}
+            />
+          </div>
+          <div className='text-md font-medium mt-2'>Opps..</div>
           <div>You haven't catch any pokemons!</div>
         </div>
       )
@@ -117,11 +120,11 @@ const Home = (props: any) => {
                     className='pl-5 rounded m-5 bg-teal-500 text-white'
                   >
                     <div className='flex flex-row items-center'>
-                      <div className='mr-10 w-20'>
-                        <img
+                      <div className='mr-10 w-20 my-5 p-1'>
+                        <Image
                           width={150}
                           height={150}
-                          className='bg-white rounded-full my-5 p-1'
+                          className='bg-white rounded-full'
                           src={item.sprites.front_default}
                           alt={item.sprites.front_default}
                         />
@@ -170,8 +173,8 @@ const Home = (props: any) => {
   }
 
   useEffect(() => {
-    const { query } = router
-    if (query.tab !== activeTab) {
+    const { tab } = router.query
+    if (tab !== activeTab) {
       router.push(`/home?tab=${activeTab}`, undefined, { shallow: true })
     }
   }, [activeTab])
@@ -206,7 +209,7 @@ const Home = (props: any) => {
           <Alert
             src={pokemonImage}
             onClick={() => closeAlert()}
-            children={null}
+            children=''
             title={'Success!'}
             description={`${pokemonNickName} has been released!`}
             visible={visibleAlert}

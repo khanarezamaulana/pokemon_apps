@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import Image from 'next/image'
 
 export default function Alert({ children, visible, title, description, onClick, src }){
   if (visible) {
@@ -12,7 +13,13 @@ export default function Alert({ children, visible, title, description, onClick, 
             </div>
             <div className='flex items-center space-x-6 text-left'>
               <div className='shrink-0'>
-                <img className='h-20 w-20 rounded-full bg-teal-500 p-1' src={src ? src : '/pokeball_4.png'} alt='pokeball' />
+                <Image 
+                  className='h-20 w-20 rounded-full bg-teal-500 p-1'
+                  src={src ? src : '/pokeball_4.png'}
+                  alt='pokeball_4.png' 
+                  width={80}
+                  height={80}
+                />
               </div>
               <div>
                 <div className='text-lg font-medium text-black'>{title}</div>

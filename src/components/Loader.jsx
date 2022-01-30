@@ -1,11 +1,14 @@
+import Image from 'next/image'
+
 export default function Loader () {
   return (
     <div className='h-screen'>
       <div className='fixed inset-0 z-50 top-20'>
         <div style={{ marginTop: '-140px' }} className='flex justify-center items-center h-screen'>
-          <img 
+          <Image
             className='animate-spin'
             src='/pokeball_3.png'
+            alt='/pokeball_3.png'
             width={50}
             height={50}
           />

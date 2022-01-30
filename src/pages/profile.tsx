@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from 'react'
-import { AppsContext } from '../context/AppsContext'
+import { AppsContext } from '../../context/AppsContext'
+import Image from 'next/image'
 import Modal from '../components/Modal'
 import Alert from '../components/Alert'
 import Loader from '../components/Loader'
@@ -122,14 +123,15 @@ const Detail = (props: any) => {
               Click here to catch me!
             </div>
           </div>
-          <img
-            onClick={handleCatch}
-            width={100}
-            height={100}
-            className='bg-teal-500 rounded-full m-auto my-2 p-1 cursor-grab'
-            src={profileData.sprites.front_default}
-            alt={profileData.sprites.front_default}
-          />
+          <div className='bg-teal-500 rounded-full m-auto cursor-grab h-24 w-24 my-1 p-1'>
+            <Image
+              onClick={handleCatch}
+              width={100}
+              height={100}
+              src={profileData.sprites.front_default}
+              alt={profileData.sprites.front_default}
+            />
+          </div>
           <div className='bg-white p-4 max-w-md mx-auto rounded-xl shadow-md'>
             <div>
               <div className='text-md text-black flex justify-center mb-1'>
@@ -145,12 +147,12 @@ const Detail = (props: any) => {
                 <div className='grid grid-cols-2 gap-1'>
                   {profileData.moves.slice(0, 15).map((poke: any) =>
                     <div className='text-left'>
-                      <li className='pr-5' key={poke.move.name}>{poke.move.name}</li>
+                      <li className='pr-5'>{poke.move.name}</li>
                     </div>
                   )}
                   {profileData.moves.slice(15, 30).map((poke: any) =>
                     <div className='text-left'>
-                      <li key={poke.move.name}>{poke.move.name}</li>
+                      <li>{poke.move.name}</li>
                     </div>
                   )}
                 </div>
@@ -167,8 +169,9 @@ const Detail = (props: any) => {
                     ) : (
                       <span className='flex flex-row space-x-6 px-6 items-center'>
                         <span>
-                          <img
+                          <Image
                             src='/pokeball_4.png'
+                            alt='/pokeball_4.png'
                             width={50}
                             height={50}
                           />
@@ -221,7 +224,7 @@ const Detail = (props: any) => {
               src={profileData.sprites.front_default}
               onClick={() => closeAlert()}
               visible={visibleAlert}
-              children={null}
+              children=''
               title={errorMessage ? 'Failed!' : 'Congrats!'}
               description={errorMessage ? errorMessage : <span><span className='capitalize'>{profileData.name}</span> has been saved!</span>}
             />
@@ -238,10 +241,11 @@ const Detail = (props: any) => {
   if (profileData === 'Data Not Found!') {
     return (
       <div style={{ marginTop: '-60px' }} className='h-screen text-center p-10 justify-center items-center flex flex-col'>
-        <img
-          src={'/pokeball_4.png'}
-          width={100}
-          height={100}
+        <Image
+          src='/pokeball_4.png'
+          alt='pokeball_4.png'
+          width={80}
+          height={80}
         />
         <div className='text-md font-medium mt-4'>Pokemon not found!</div>
       </div>
