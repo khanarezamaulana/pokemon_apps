@@ -6,7 +6,7 @@ import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 export default function Header () {
   const router = useRouter()
   return (
-    <div className='flex justify-center items-center bg-teal-500 p-4 sticky top-0 z-20'>
+    <div className='flex justify-center items-center bg-teal-500 p-4 sticky top-0 z-10'>
       {
         router.pathname === '/profile' &&
         <FontAwesomeIcon onClick={() => router.back()} icon={faArrowCircleLeft} width={20} color='white' className='left-5 cursor-pointer absolute' />

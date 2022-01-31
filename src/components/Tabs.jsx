@@ -4,7 +4,7 @@ export default function Tabs (props) {
   if (!tabs || tabs.length < 1) return null
 
   return (
-    <ul className='list-reset flex border-b my-5 table w-full sticky top-14 bg-white'>
+    <ul className='list-reset flex border-b my-5 table w-full sticky top-14 bg-white z-10'>
       {tabs.map(tab => {
         const isActive = activeTab == tab.route
         return (

@@ -66,7 +66,7 @@ const Home = (props: any) => {
     return (
       <div className='flex flex-col'>
         <div style={{ boxShadow: '0.5px 0 5px 0 #00000014' }} className='p-6 mx-6 bg-white rounded-xl shadow-inner flex flex-row items-center space-x-9'>
-          <div className='shrink-0'>
+          <div>
             <Image width={80} height={80} src='/pokeball_4.png' alt='pokeball_4.png' />
           </div>
           <div>
