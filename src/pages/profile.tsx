@@ -99,11 +99,11 @@ const Detail = (props: any) => {
   const renderValidateMessage = () => {
     if (visibleValidate === true && !nickName) {
       return (
-        <p style={{ marginTop: '-13px' }} className='text-left text-sm text-red-500'>Nickname must be filled!</p>
+        <p style={{ marginTop: '-13px' }} className='text-left text-xs text-red-500'>Nickname must be filled!</p>
       )
     } else if (visibleValidate === true && nickName) {
       return (
-        <p style={{ marginTop: '-13px' }} className='text-left text-sm text-red-500'>{errorMessage}</p>
+        <p style={{ marginTop: '-13px' }} className='text-left text-xs text-red-500'>{errorMessage}</p>
       )
     } else {
       return ''
@@ -143,11 +143,11 @@ const Detail = (props: any) => {
               <div className='text-md text-black mt-5 mb-1 flex justify-center'>
                 Moves
               </div>
-              <p className='text-slate-500 text-sm flex justify-center items-center pl-8 capitalize'>
+              <p className='text-slate-500 text-sm flex justify-center items-center pl-2 capitalize'>
                 <div className='grid grid-cols-2 gap-1'>
                   {profileData.moves.slice(0, 15).map((poke: any) =>
                     <div className='text-left' key={poke.move.name}>
-                      <li className='pr-5'>{poke.move.name}</li>
+                      <li className='pr-4'>{poke.move.name}</li>
                     </div>
                   )}
                   {profileData.moves.slice(15, 30).map((poke: any) =>
@@ -162,12 +162,12 @@ const Detail = (props: any) => {
           {visibleModal &&
             <Modal title={catched ? 'Yeay, Catched!' : 'Whoops!'} visible={visibleModal}>
               <div className='relative p-6 flex-auto'>
-                <p className='my-4 text-light text-left text-base leading-relaxed'>
+                <p className='my-4 text-light text-left text-sm leading-relaxed'>
                   {
                     catched ? (
                       'Give him a new Nickname'
                     ) : (
-                      <span className='flex flex-row space-x-6 px-6 items-center'>
+                      <span className='flex flex-row space-x-4 px-2 items-center text-sm'>
                         <span>
                           <Image
                             src='/pokeball_4.png'

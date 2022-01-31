@@ -65,14 +65,14 @@ const Home = (props: any) => {
   const renderPokemons = () => {
     return (
       <div className='flex flex-col'>
-        <div style={{ maxWidth: '25.3rem', boxShadow: '0.5px 0 5px 0 #00000014' }} className='p-6 mx-auto bg-white rounded-xl shadow-inner flex items-center space-x-9 w-full'>
+        <div style={{ boxShadow: '0.5px 0 5px 0 #00000014' }} className='p-6 mx-6 bg-white rounded-xl shadow-inner flex flex-row items-center space-x-9'>
           <div className='shrink-0'>
-            <Image width={80} height={80} className='h-20 w-20' src='/pokeball_4.png' alt='pokeball_4.png' />
+            <Image width={80} height={80} src='/pokeball_4.png' alt='pokeball_4.png' />
           </div>
           <div>
-            <div className='text-md font-medium text-black'>Total Pokemon</div>
+            <div className='text-sm font-medium text-black'>Total Pokemon</div>
             <p className='text-slate-500'>{pokemons.length}</p>
-            <div className='text-md font-medium text-black mt-2'>Total Pokemons Owned</div>
+            <div className='text-sm font-medium text-black mt-2'>Total Pokemons Owned</div>
             <p className='text-slate-500'>{myPokemons.length}</p>
           </div>
         </div>
@@ -95,13 +95,13 @@ const Home = (props: any) => {
   const renderMyPokemons = () => {
     if (!myPokemons || myPokemons.length === 0) {
       return (
-        <div style={{ marginTop: '-217px' }} className='flex flex-col justify-center items-center h-screen'>
-          <div className='ml-16'>
+        <div style={{ marginTop: '-180px' }} className='flex flex-col justify-center items-center h-screen'>
+          <div className='ml-12'>
             <Image
               src='/pokemon_5.png'
               alt='pokemon_5.png'
-              width={200}
-              height={200}
+              width={150}
+              height={150}
             />
           </div>
           <div className='text-md font-medium mt-2'>Opps..</div>
@@ -120,23 +120,22 @@ const Home = (props: any) => {
                     className='pl-5 rounded m-5 bg-teal-500 text-white'
                   >
                     <div className='flex flex-row items-center'>
-                      <div className='mr-10 w-20 my-5 p-1'>
+                      <div className='mr-4 h-20 w-20 my-5 p-1 bg-white rounded-full'>
                         <Image
                           width={150}
                           height={150}
-                          className='bg-white rounded-full'
                           src={item.sprites.front_default}
                           alt={item.sprites.front_default}
                         />
                       </div>
                       <div>
                         <tr>
-                          <td width='100'>Name</td>
+                          <td width='85'>Name</td>
                           <td width='10'>:</td>
                           <td><p className='capitalize'>{item.name}</p></td>
                         </tr>
                         <tr>
-                          <td width='100'>Nickname</td>
+                          <td width='85'>Nickname</td>
                           <td width='10'>:</td>
                           <td><p className='capitalize'>{item.nickName}</p></td>
                         </tr>
