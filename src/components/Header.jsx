@@ -24,7 +24,7 @@ export default function Header () {
               width={25}
               height={25}
             />
-            <span onClick={() => router.push('/')} className='text-white cursor-pointer ml-2'>Pokemon Trip</span>
+            <span onClick={() => router.push('/')} className='text-white cursor-pointer ml-2'>Pokemons Trip</span>
           </>
         )
       }
