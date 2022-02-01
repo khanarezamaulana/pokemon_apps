@@ -15,7 +15,7 @@ export default function Alert({ visible, title, description, onClick, src }){
               <div className='shrink-0 h-20 w-20 rounded-full bg-teal-500 p-1'>
                 <Image 
                   src={src ? src : '/pokeball_4.png'}
-                  alt='pokeball_4.png' 
+                  alt={src ? src : 'pokeball_4.png'} 
                   width={80}
                   height={80}
                 />

@@ -10,7 +10,7 @@ function MyApp ({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Pokemon Trip</title>
-        <meta name='description' content='Pokemons App by Khana Reza Maulana' />
+        <meta name='description' content='Pokemon Apps by Khana Reza Maulana' />
         <link rel='icon' href='/favicon.ico' />
         <meta  name='viewport' content='width=device-width, initial-scale-1' />
       </Head>

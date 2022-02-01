@@ -26,7 +26,7 @@ export async function getServerSideProps(context: any){
   }
 }
 
-const Detail = (props: any) => {
+const Profile = (props: any) => {
   const { pokemonName } = props
   const { addPokemonOwned } = useContext(AppsContext)
   const [ visibleModal, setVisibleModal ] = useState(false)
@@ -258,4 +258,4 @@ const Detail = (props: any) => {
   )
 }
 
-export default Detail
+export default Profile
